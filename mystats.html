@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>table, th, td {border:1px solid black;}</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -19,37 +20,85 @@
     <p> In this section, we'll dive into the world of sports and recommend four exciting activities for you to try. Each sport offers a unique set of physical and mental benefits, ensuring an enjoyable and fulfilling experience. The table below provides an overview of these sports, reasons for recommending them, and an estimate of the average weekly time commitment.</p>
 
     <table>
-        <tr>
-            <td><b>Sport Name</b></td>
-            <td><b>Reason for Recommendation</b></td>
-            <td><b>Average Weekly Hours</b></td>
+        <tbody>
+            <tr>
+                <td><b>Sport Name</b></td>
+                <td><b>Reason for Recommendation</b></td>
+                <td><b>Average Weekly Hours</b></td>
 
-        </tr>
-        <tr>
-            <td>Rock Climbing</td>
-            <td>Builds strength, problem-solving skills, and provides an adrenaline rush.</td>
-            <td>3-5 hours</td>
+            </tr>
+            <tr>
+                <td>Rock Climbing</td>
+                <td>Builds strength, problem-solving skills, and provides an adrenaline rush.</td>
+                <td>3-5 hours</td>
 
-        </tr>
+            </tr>
 
-        <tr>
-            <td>Ultimate Frisbee</td>
-            <td>Promotes teamwork, cardiovascular fitness, and a friendly social atmosphere.</td>
-            <td>2-4 hours</td>
-        </tr>
+            <tr>
+                <td>Ultimate Frisbee</td>
+                <td>Promotes teamwork, cardiovascular fitness, and a friendly social atmosphere.</td>
+                <td>2-4 hours</td>
+            </tr>
 
-        <tr>
-            <td>Parkour</td>
-            <td>Enhances agility, creativity, and a unique way to explore your environment.</td>
-            <td>4-6 hours</td>
-        </tr>
+            <tr>
+                <td>Parkour</td>
+                <td>Enhances agility, creativity, and a unique way to explore your environment.</td>
+                <td>4-6 hours</td>
+            </tr>
 
-        <tr>
-            <td>CrossFit</td>
-            <td>Offers a well-rounded fitness regimen, combining strength and endurance training.</td>
-            <td>5-7 hours</td>
-        </tr>
-        
+            <tr>
+                <td>CrossFit</td>
+                <td>Offers a well-rounded fitness regimen, combining strength and endurance training.</td>
+                <td>5-7 hours</td>
+            </tr>
+        </tbody>
+
+
+
     </table>
+
+    <hr>
+
+    <h1>Code display.</h1>
+
+    <a href="https://stackoverflow.com/questions/52593013/jquery-scrollto-behavior-highlighting-element">Link to stackoverflow</a>
+
+
+    <pre>// Select all links with hashes
+        $('a[href*="#"]')
+          // Remove links that don't actually link to anything
+          .not('[href="#"]')
+          .not('[href="#0"]')
+          .click(function(event) {
+            // On-page links
+            if (
+              location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+              && 
+              location.hostname == this.hostname
+            ) {
+              // Figure out element to scroll to
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              // Does a scroll target exist?
+              if (target.length) {
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault();
+                $('html, body').animate({
+                  scrollTop: target.offset().top
+                }, 1000, function() {
+                  // Callback after animation
+                  // Must change focus!
+                  var $target = $(target);
+                  $target.focus();
+                  if ($target.is(":focus")) { // Checking if the target was focused
+                    return false;
+                  } else {
+                    $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                    $target.focus(); // Set focus again
+                  };
+                });
+              }
+            }
+          });</pre>
 </body>
 </html>
